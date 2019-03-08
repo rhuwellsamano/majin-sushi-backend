@@ -17,7 +17,7 @@ class UsersController < ApplicationController
 
      def update
        @user = User.find(params[:id])
-       @user.update
+       @user.update(user_params)
        render json: @user
      end
 
@@ -28,7 +28,7 @@ class UsersController < ApplicationController
 
      private
     def user_params
-      params.require(:user).permit(:name, :email, :money)
+      params.require(:user).permit(:money)
     end
 
 end
